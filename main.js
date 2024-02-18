@@ -1,22 +1,33 @@
-function soatKorsatish() {
-    var sanasi = new Date(); // Joriy sana va vaqt
-    var soat = sanasi.getHours(); // Soatni olish (0-23)
-    var minut = sanasi.getMinutes(); // Daqiqani olish (0-59)
-    var sekund = sanasi.getSeconds(); // Sekundni olish (0-59)
+// Function to display the clock
+function showClock() {
+    var now = new Date(); // Current date and time
+    var hours = now.getHours(); // Get the hour (0-23)
+    var minutes = now.getMinutes(); // Get the minute (0-59)
+    var seconds = now.getSeconds(); // Get the second (0-59)
     
-    // Soat, minut va sekundni ikki belgilik ravishda ko'rsatish uchun kerakli tekshiruvlar
-    soat = (soat < 10) ? "0" + soat : soat;
-    minut = (minut < 10) ? "0" + minut : minut;
-    sekund = (sekund < 10) ? "0" + sekund : sekund;
+    // Add leading zeros to hours, minutes, and seconds to display them in two digits
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
     
-    // Soatni HTML'da div ichiga chiqarish
-    document.getElementById("soat").innerHTML = soat + ":" + minut + ":" + sekund;
+    // Display the time in a div in HTML
+    var clockElement = document.getElementById("clock");
+    clockElement.innerHTML = hours + ":" + minutes + ":" + seconds;
     
-    // Har bir sekundda, soatni yangilash uchun funksiyani chaqirish
-    setTimeout(soatKorsatish, 1000);
+    // Add CSS styles dynamically to the clock div
+    clockElement.style.fontFamily = "Arial, sans-serif"; // Font family
+    clockElement.style.fontSize = "24px"; // Font size
+    clockElement.style.color = "#333"; // Text color
+    clockElement.style.padding = "10px"; // Padding inside the element
+    clockElement.style.backgroundColor = "#f0f0f0"; // Background color
+    clockElement.style.borderRadius = "5px"; // Border radius
+    clockElement.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.1)"; // Box shadow
+    
+    // Call the function every second to update the clock
+    setTimeout(showClock, 1000);
 }
 
-// Sahifani yuklandiqda soatKorsatish funksiyasini chaqirish
+// Call the showClock function when the page is loaded
 window.onload = function() {
-    soatKorsatish();
+    showClock();
 };
