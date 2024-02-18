@@ -71,7 +71,8 @@ function showClock() {
 window.onload = function() {
     showClock();
 };
-function kodniChiqarish() {
+function telegramgaJoNatish() {
     var yozilganMatn = document.getElementById("inputText").value;
-    document.write("<p>" + yozilganMatn + "</p>");
+    var telegramUrl = "https://t.me/OrzuKV" + encodeURIComponent(yozilganMatn);
+    window.open(telegramUrl, "_blank");
 }
