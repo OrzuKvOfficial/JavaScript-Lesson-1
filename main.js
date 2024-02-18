@@ -71,3 +71,7 @@ function showClock() {
 window.onload = function() {
     showClock();
 };
+function kodniChiqarish() {
+    var yozilganMatn = document.getElementById("inputText").value;
+    document.write("<p>" + yozilganMatn + "</p>");
+}
